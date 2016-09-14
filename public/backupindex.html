@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+   <head>
+
+      <meta charset="UTF-8">
+      <!--Bootstrap Libraries -->
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+      <!--Angular libraies-->
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+
+      <!--My custom libraries -->
+      <script type="text/javascript" src="controllers/script1.js"></script>
+      <link rel="stylesheet" href="css/span.css">
+
+   </head>
+
+   <!-- <h3><center>My ToDo List</center></h3> -->
+
+
+   <body ng-app="mainApp" ng-controller="app">
+
+      <br>
+
+      <div class="container" id="tasksToShow">
+
+         <div class="row">
+
+            <div class="col-md-2">
+            </div>
+
+            <div class="col-md-8">
+               <div>
+               <header class="app-header">
+                  <h1 class="app-title">My Awesome ToDo App</h1>
+                  <h1 class="app-headline">Here You Go...</h1>
+               </header>
+               </div>
+               <br><br>
+
+
+                  <span class="inp-{{onetask.input}}"><input type="button" class="btn btn-default btn-sm button pull-left" value="To Do Tasks" ng-click="getTodos()"></span>
+
+                  <span><input type="button" class="btn btn-default btn-sm button1 pull-left" value="Completed Tasks" ng-click="addToCompleted()"></span>
+
+                  
+
+               <br><br>
+
+
+               <form>
+
+                  <ul class="list-group">
+                        <li class="list-group-item inputSpan">
+                           <span > <input class="add-input" placeholder="Enter your ToDo tasks Here..." type="text" ng-model="task" ng-click="todotasks()"> 
+                           
+                        </li>
+
+
+                     <span ng-repeat="onetask in todolist | orderBy:'todolist.indexOf(onetask)':true track by $index">
+
+                        <li class="list-group-item nav nav-pills inp1-{{onetask.input}}" >
+
+                        <span class="inp-{{onetask.input}}"><input type="checkbox" ng-model="onetask.status"></span>
+
+                        <span ng-model="onetask.taskMessage" class="done-{{onetask.status}}">
+                              {{onetask.taskMessage}}
+                        </span>
+
+
+                        <span><input type="button" value="Delete" class="btn btn-default btn-sm pull-right" ng-click="finishedTasks(onetask._id,onetask.input)"></span>
+
+                        <span class="inp-{{onetask.input}}"><input type="button" value="Tasks Completed" class="btn btn-default btn-sm pull-right donebutton-{{onetask.status}}" ng-click="completedTasks(onetask._id)"></span>
+
+          
+                        </li>
+
+                     </span>
+
+               
+
+                     <br> <br>
+                    
+                     <div>
+
+                        <input type="submit" class="btn btn-default btn-sm pull-right" value="Enter Your Tasks" ng-click="addTasks()" style="visibility:hidden;"></span>
+                        
+                     </div>
+                  </form>
+
+               </ul>
+
+            </div>
+            <div class="col-md-2">
+
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
