@@ -13,14 +13,15 @@ describe("MyApp",function() {
 			httpBackend = $httpBackend;
 			httpp = $http;
 			controller = $controller;
-			httpBackend.when("GET", "/mytodos").respond(200, { data: 'value' });
+			
 
 		}));
 
 
 		it('Should get all da data when loading the page',function() {
 			var scope = {};
-			httpBackend.expectGET('/mytodos');
+
+			httpBackend.when("GET", "/mytodos").respond(200,{ data: 'value' });
 
 			controller('app', {
 				$scope: scope,
@@ -29,7 +30,7 @@ describe("MyApp",function() {
 
 			httpBackend.flush();
 
-			expect(scope.todolist).not.toBeNull();
+			expect(scope.todolist).toEqual({ data: 'value' });
 
 		});
 
