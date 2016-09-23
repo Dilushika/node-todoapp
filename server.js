@@ -1,5 +1,4 @@
-
-
+ 
 var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
@@ -49,7 +48,6 @@ var todos = mongoose.model('todos',TodoSchema);
 				res.send(err)
 			else
 				res.json(tasks);
-
 		});
 	});
 

@@ -1,24 +1,24 @@
 
 .app-header {
-text-align: center;
-border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-height: 40px;
-background: #000066;
+  text-align: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  height: 40px;
+  background: #808080;
 }
 
 .app-title {
-font-size: 28px;
-line-height: 40px;
-padding: 0px;
-margin: 0px;
-color: #fff;
-text-shadow: 1px 1px 3px #000000;
-filter: dropshadow(color=#000000, offx=1, offy=1);
+  font-size: 28px;
+  line-height: 40px;
+  padding: 0px;
+  margin: 0px;
+  color: #fff;
+  text-shadow: 1px 1px 3px #000000;
+  filter: dropshadow(color=#000000, offx=1, offy=1);
 }
 
 .app-headline {
-color: #999;
-font-size: 18px;
+  color: #999;
+  font-size: 18px;
 }
 
 
@@ -26,6 +26,7 @@ font-size: 18px;
 .donebutton-false{
   visibility: hidden;
 }
+
 
 
 .done1-true{
@@ -45,7 +46,7 @@ font-size: 18px;
 .button1{
 
   background :#00FFFF;
- 
+  
 }
 
 
@@ -70,12 +71,12 @@ span.inp-false{
 
 .img {
   height: 30px;
-    width: 35px;
+  width: 35px;
 }
 
 .img1 {
   height: 20px;
-    width: 20px;
+  width: 20px;
 }
 
 
