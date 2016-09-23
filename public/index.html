@@ -50,8 +50,15 @@
 
   <form>
 
+  <div style="min-width:550px;">
+
    <span > <input class="add-input" placeholder="Enter your ToDo tasks Here..." type="text" ng-model="task" ng-click="todotasks()"> 
-     <input type="submit" class="btn btn-primary button btn-sm pull-right" value="Enter Your Task" ng-click="addTasks()" style=""></span>
+
+     <input type="submit" class="btn btn-primary button btn-sm pull-right" value="Enter Your Task" ng-click="addTasks()">
+
+   </span>
+
+  </div>
 
      <br><br><br>
 
@@ -59,42 +66,39 @@
 
        <thead>
         <tr>
+         
+          <th>Your Tasks...</th>
+    </tr>
+  </thead>
 
-         <th>Your Tasks...</th>
-       </tr>
-     </thead>
+  <tbody>
 
-     <tbody>
+   <tr ng-repeat="onetask in todolist | orderBy:'todolist.indexOf(onetask)':true track by $index">
 
-       <tr ng-repeat="onetask in todolist | orderBy:'todolist.indexOf(onetask)':true track by $index">
+    <td ng-model="onetask.taskMessage">
+      <span style="pull-center">
+       {{onetask.taskMessage}}
+     </span>
+     <span>
+       <input type="button" class="btn btn-primary btn-sm pull-right inp-{{onetask.status}} button" ng-click="completedTasks(onetask._id)" value="Done">
+       <span>
+    </td>
 
 
-        <td ng-model="onetask.taskMessage">
-          <span style="pull-center">
-           {{onetask.taskMessage}}
+       <td>
+         <span><input type="button" class="btn btn-warning btn-sm pull-right" ng-click="finishedTasks(onetask._id,onetask.status)" value="Delete">
          </span>
-         <span>
-           <input type="button" class="btn btn-primary btn-sm pull-right inp-{{onetask.status}} button" ng-click="completedTasks(onetask._id)" value="Done">
-           <span>
-           </td>
-         </td>
+       </td>
 
-         <td class="">
+     </tr>
 
-          <td>
-           <span><input type="button" class="btn btn-warning btn-sm pull-right" ng-click="finishedTasks(onetask._id,onetask.status)" value="Delete">
-           </span>
-         </td>
-
-         </tr>
-
-     </tbody>
-   </table>
+   </tbody>
+ </table>
 
 
-   <br> <br>
+ <br> <br>
 
- </form>
+</form>
 
 </ul>
 
