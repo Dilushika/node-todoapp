@@ -17,6 +17,7 @@ app.controller("app", function($scope,$http) {
     });
 
 
+    
     $scope.addTasks = function(){
         $http.post('/mytodos',{ taskMessage: $scope.task })
         .success(function (data){
@@ -78,8 +79,6 @@ app.controller("app", function($scope,$http) {
             console.log('Error: ' +data);
         });
     };
-
-
 });
 
 
