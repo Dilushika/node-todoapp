@@ -3,11 +3,11 @@
   text-align: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   height: 40px;
-  background: #808080;
+  background: #008B8B;
 }
 
 .app-title {
-  font-size: 28px;
+  font-size: 23px;
   line-height: 40px;
   padding: 0px;
   margin: 0px;
@@ -38,7 +38,7 @@
 
 .button{
   
-  background:  #808080;
+  background:  #008B8B;
 
 }
 
@@ -60,15 +60,6 @@
 }
 
 
-.img {
-  height: 30px;
-  width: 35px;
-}
-
-.img1 {
-  height: 20px;
-  width: 20px;
-}
 
 
 

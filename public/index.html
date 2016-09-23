@@ -4,98 +4,99 @@
 
 <head>
 
-   <meta charset="UTF-8">
-   <!--Bootstrap Libraries -->
-   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <meta charset="UTF-8">
+ <!--Bootstrap Libraries -->
+ <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+ <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-   <!--Angular libraies-->
-   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+ <!--Angular libraies-->
+ <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+ <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
 
-   <!--My custom libraries -->
-   <script type="text/javascript" src="controllers/script1.js"></script>
-   <link rel="stylesheet" href="css/span.css">
+ <!--My custom libraries -->
+ <script type="text/javascript" src="controllers/script1.js"></script>
+ <link rel="stylesheet" href="css/span.css">
 
 </head>
 
 <body ng-app="mainApp" ng-controller="app">
 
-   <br>
+ <br>
 
-   <div class="container" id="tasksToShow">
+ <div class="container" id="tasksToShow">
 
-      <div class="row">
-
-
-         <div class="col-md-12">
-            <div>
-               <header class="app-header">
-                  <h1 class="app-title">My Awesome ToDo App</h1>
-                  <h1 class="app-headline">Here You Go...</h1>
-               </header>
-            </div>
-            <br><br><br>
+  <div class="row">
 
 
-            <span><input type="button" class="btn btn-default btn-sm pull-left" value="To Do Tasks" ng-click="getTodos()"></span>
-            
-            <span><input type="button" class="btn btn-default btn-sm pull-left" value="Completed Tasks" ng-click="addToCompleted()"></span>
-
-            
-
-            <br><br><br>
-
-
-            <form>
-
-               <span > <input class="add-input" placeholder="Enter your ToDo tasks Here..." type="text" ng-model="task" ng-click="todotasks()"> 
-                 <input type="submit" class="btn btn-primary button btn-sm pull-right" value="Enter Your Task" ng-click="addTasks()" style=""></span>
-
-                 <br><br><br>
-
-                 <table class="table">
-
-                   <thead>
-                    <tr>
-
-                     <th>Your Tasks...</th>
-                  </tr>
-               </thead>
-
-               <tbody>
-
-                 <tr ng-repeat="onetask in todolist | orderBy:'todolist.indexOf(onetask)':true track by $index">
+   <div class="col-md-12">
+    <div>
+     <header class="app-header">
+      <h1 class="app-title">My Awesome ToDo App</h1>
+      <h1 class="app-headline">Here You Go...</h1>
+    </header>
+  </div>
+  <br><br><br>
 
 
-                  <td ng-model="onetask.taskMessage">
-                     {{onetask.taskMessage}}
-                     <span>
-                     <input type="button" class="btn btn-default btn-sm pull-right inp-{{onetask.status}}" ng-click="completedTasks(onetask._id)" value="Done">
-                     <span>
-                  </td>
-                  </td>
+  <span><input type="button" class="btn btn-default btn-sm pull-left" value="To Do Tasks" ng-click="getTodos()"></span>
 
-                  <td class="">
-
-                  <td>
-                     <span><input type="button" class="btn btn-warning btn-sm pull-right" ng-click="finishedTasks(onetask._id,onetask.status)" value="Delete">
-                     </span>
-                  </td>
-
-               </tr>
+  <span><input type="button" class="btn btn-default btn-sm pull-left" value="Completed Tasks" ng-click="addToCompleted()"></span>
 
 
-            </tbody>
-         </table>
+
+  <br><br><br>
 
 
-         <br> <br>
+  <form>
 
-      </form>
+   <span > <input class="add-input" placeholder="Enter your ToDo tasks Here..." type="text" ng-model="task" ng-click="todotasks()"> 
+     <input type="submit" class="btn btn-primary button btn-sm pull-right" value="Enter Your Task" ng-click="addTasks()" style=""></span>
 
-   </ul>
+     <br><br><br>
+
+     <table class="table">
+
+       <thead>
+        <tr>
+
+         <th>Your Tasks...</th>
+       </tr>
+     </thead>
+
+     <tbody>
+
+       <tr ng-repeat="onetask in todolist | orderBy:'todolist.indexOf(onetask)':true track by $index">
+
+
+        <td ng-model="onetask.taskMessage">
+          <span style="pull-center">
+           {{onetask.taskMessage}}
+         </span>
+         <span>
+           <input type="button" class="btn btn-primary btn-sm pull-right inp-{{onetask.status}} button" ng-click="completedTasks(onetask._id)" value="Done">
+           <span>
+           </td>
+         </td>
+
+         <td class="">
+
+          <td>
+           <span><input type="button" class="btn btn-warning btn-sm pull-right" ng-click="finishedTasks(onetask._id,onetask.status)" value="Delete">
+           </span>
+         </td>
+
+         </tr>
+
+     </tbody>
+   </table>
+
+
+   <br> <br>
+
+ </form>
+
+</ul>
 
 </div>
 
