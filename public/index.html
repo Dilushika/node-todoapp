@@ -47,7 +47,7 @@
             <br><br><br>
 
 
-            <span class="inp-{{onetask.input}}"><input type="button" class="btn btn-default btn-sm pull-left" value="To Do Tasks" ng-click="getTodos()"></span>
+            <span><input type="button" class="btn btn-default btn-sm pull-left" value="To Do Tasks" ng-click="getTodos()"></span>
 
             <span><input type="button" class="btn btn-default btn-sm pull-left" value="Completed Tasks" ng-click="addToCompleted()"></span>
 
@@ -69,7 +69,7 @@
 
                         <li class="list-group-item nav nav-pills todos" >
 
-                           <span class="inp-{{onetask.input}}"><input type="button" class="btn btn-success btn-sm pull-left" ng-click="completedTasks(onetask._id)" value="Done">
+                           <span class="inp-{{onetask.status}}"><input type="button" class="btn btn-success btn-sm pull-left" ng-click="completedTasks(onetask._id)" value="Done">
                            </span>
 
                            <span ng-model="onetask.taskMessage" >
@@ -77,10 +77,7 @@
                            </span>
 
 
-                           <span><input type="button" class="btn btn-warning btn-sm pull-right" ng-click="finishedTasks(onetask._id,onetask.input)" value="Delete"></span>
-
-                           <span class="inp-{{onetask.input}}"></span>
-
+                           <span><input type="button" class="btn btn-warning btn-sm pull-right" ng-click="finishedTasks(onetask._id,onetask.status)" value="Delete"></span>
                            
                         </li>
 

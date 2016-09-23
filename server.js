@@ -33,8 +33,7 @@ app.use(methodOverride());
 //Define the todo model
 var TodoSchema = new mongoose.Schema({
 	taskMessage : String,
-	status : Boolean,
-	input : Boolean,
+	status : Boolean
 });
 
 
@@ -73,7 +72,6 @@ var todos = mongoose.model('todos',TodoSchema);
 			todos.create({
 				taskMessage : req.body.taskMessage,
 				status : false,
-				input : true
 			}, function(err,tasks){
 
 				if(err) 
@@ -92,7 +90,7 @@ var todos = mongoose.model('todos',TodoSchema);
 
 
 	//Delete todos
-	app.delete('/mytodos/:id/:inp', function(req, res) {
+	app.delete('/mytodos/:id/:status', function(req, res) {
         todos.remove({
 
             _id : req.params.id
@@ -101,7 +99,7 @@ var todos = mongoose.model('todos',TodoSchema);
             if (err)
                 res.send(err);
 
-            else if (req.params.inp == "true") {
+            else if (req.params.status == "false") {
 	            todos.find({"status" : false} , function(err, task) {
 	                if (err)
 	                    res.send(err)
@@ -130,8 +128,7 @@ var todos = mongoose.model('todos',TodoSchema);
 
     	},{
 	    		$set : {
-	    			status : true,
-	    			input : false
+	    			status : true
 	    		}
     		
     	}, function(err,tasks){
@@ -146,7 +143,6 @@ var todos = mongoose.model('todos',TodoSchema);
     		});
     	});
     });
-
 
 
 

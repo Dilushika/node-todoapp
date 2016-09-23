@@ -16,7 +16,6 @@ app.controller("app", function($scope,$http) {
     });
 
 
-    
     $scope.addTasks = function(){
         $http.post('/mytodos',{ taskMessage: $scope.task })
         .success(function (data){
@@ -53,8 +52,8 @@ app.controller("app", function($scope,$http) {
     };
 
 
-    $scope.finishedTasks = function(id,input){
-        $http.delete('/mytodos/' + id + '/' + input)
+    $scope.finishedTasks = function(id,status){
+        $http.delete('/mytodos/' + id + '/' + status)
         .success(function(data){
             $scope.todolist = data;
             console.log(data);
@@ -78,9 +77,6 @@ app.controller("app", function($scope,$http) {
             console.log('Error: ' +data);
         });
     };
-
-
-
 
 
 });
