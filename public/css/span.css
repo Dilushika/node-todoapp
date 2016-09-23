@@ -38,22 +38,13 @@
 
 .button{
   
-  background:  #000066;
-  color: #fff;
+  background:  #808080;
 
 }
-
-.button1{
-
-  background :#00FFFF;
-  
-}
-
 
 .add-input {
-  width: 100%;
-  border: none;  
-  font-size: 1.5em;
+  width: 80%; 
+  font-size: 1.3em;
   text-indent: 45px;
   text-align: center;  
 }
@@ -63,7 +54,7 @@
 }
 
 
-span.inp-true{
+.inp-true{
   visibility: hidden;
 
 }

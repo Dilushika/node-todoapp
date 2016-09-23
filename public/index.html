@@ -28,10 +28,8 @@
 
       <div class="row">
 
-         <div class="col-md-2">
-         </div>
 
-         <div class="col-md-8">
+         <div class="col-md-12">
             <div>
                <header class="app-header">
                   <h1 class="app-title">My Awesome ToDo App</h1>
@@ -52,49 +50,56 @@
 
             <form>
 
-               <ul class="list-group">
-                  <li class="list-group-item inputSpan">
-                     <span > <input class="add-input" placeholder="Enter your ToDo tasks Here..." type="text" ng-model="task" ng-click="todotasks()"> 
-                        
-                     </li>
+               <span > <input class="add-input" placeholder="Enter your ToDo tasks Here..." type="text" ng-model="task" ng-click="todotasks()"> 
+                 <input type="submit" class="btn btn-primary button btn-sm pull-right" value="Enter Your Task" ng-click="addTasks()" style=""></span>
+
+                 <br><br><br>
+
+                 <table class="table">
+
+                   <thead>
+                    <tr>
+
+                     <th>Your Tasks...</th>
+                  </tr>
+               </thead>
+
+               <tbody>
+
+                 <tr ng-repeat="onetask in todolist | orderBy:'todolist.indexOf(onetask)':true track by $index">
 
 
-                     <span ng-repeat="onetask in todolist | orderBy:'todolist.indexOf(onetask)':true track by $index">
+                  <td ng-model="onetask.taskMessage">
+                     {{onetask.taskMessage}}
+                     <span>
+                     <input type="button" class="btn btn-default btn-sm pull-right inp-{{onetask.status}}" ng-click="completedTasks(onetask._id)" value="Done">
+                     <span>
+                  </td>
+                  </td>
 
-                        <li class="list-group-item nav nav-pills todos" >
+                  <td class="">
 
-                           <span class="inp-{{onetask.status}}"><input type="button" class="btn btn-success btn-sm pull-left" ng-click="completedTasks(onetask._id)" value="Done">
-                           </span>
-
-                           <span ng-model="onetask.taskMessage" >
-                              {{onetask.taskMessage}}
-                           </span>
-
-
-                           <span><input type="button" class="btn btn-warning btn-sm pull-right" ng-click="finishedTasks(onetask._id,onetask.status)" value="Delete"></span>
-
-                        </li>
-
+                  <td>
+                     <span><input type="button" class="btn btn-warning btn-sm pull-right" ng-click="finishedTasks(onetask._id,onetask.status)" value="Delete">
                      </span>
+                  </td>
 
-                     
+               </tr>
 
-                     <br> <br>
-                     
-                     <div>
 
-                        <input type="submit" class="btn btn-default btn-sm pull-right" value="Enter Your Tasks" ng-click="addTasks()" style="visibility:hidden;"></span>
-                        
-                     </div>
-                  </form>
+            </tbody>
+         </table>
 
-               </ul>
 
-            </div>
-            <div class="col-md-2">
+         <br> <br>
 
-            </div>
-         </div>
-      </div>
-   </body>
-   </html>
+      </form>
+
+   </ul>
+
+</div>
+
+</div>
+</div>
+</body>
+</html>
