@@ -5,6 +5,7 @@ var app = angular.module("mainApp", []);
 
 app.controller("app", function($scope,$http) {
 
+    $scope.count = 1;
 
     $http.get('/mytodos')
     .success(function(data){
