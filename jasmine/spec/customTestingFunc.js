@@ -21,7 +21,7 @@
 			}));
 
 
-			it('Should get all da data when the page is loading',function() {
+			it('should get all da data when the page is loading',function() {
 				
 				controller('app', {
 					$scope: scope,
@@ -36,7 +36,7 @@
 			});
 
 
-			it('Should post all mytodos when \'Enter Your Tasks\' button is clicked',function(){
+			it('should post all mytodos when \'Enter Your Tasks\' button is clicked',function(){
 				
 				httpBackend.when("POST", "/mytodos").respond(200,{todos});				
 				controller('app', {
@@ -54,7 +54,7 @@
 			});
 
 
-			it('Should delete data from mytodos when \'Delete\' button is clicked',function(){
+			it('should delete data from mytodos when \'Delete\' button is clicked',function(){
 
 				httpBackend.when("DELETE", "/mytodos/57e50752b30f6512ed453e7d/false").respond(200,{todos});
 				
@@ -71,7 +71,7 @@
 			});
 
 
-			it('Should change the status of the data when \'Done\' button is clicked',function(){
+			it('should change the status of the data when \'Done\' button is clicked',function(){
 
 				httpBackend.when("PUT", "/mytodos/57e4c96b87425a0a216de7af").respond(200,{todos});
 				
@@ -88,7 +88,7 @@
 			});
 
 
-			it('Should get todo tasks data when \'Todo tasks\ button is clicked',function(){
+			it('should get todo tasks data when \'Todo tasks\ button is clicked',function(){
 
 				httpBackend.when("GET", "/mytodos").respond(200,{todos});
 				
@@ -104,7 +104,7 @@
 			});
 
 
-			it('Should get completed tasks data when \'Completed tasks\ button is clicked',function(){
+			it('should get completed tasks data when \'Completed tasks\ button is clicked',function(){
 
 				httpBackend.when("GET", "/mycompletedtodos").respond(200,{todos});
 				

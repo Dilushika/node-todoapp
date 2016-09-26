@@ -6,13 +6,26 @@ var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var path = require('path');
+var config = require('config'); //we load the db location from the JSON files
 
+//db options
+var options = { 
+                server: { socketOptions: { keepAlive: 1, connectTimeoutMS: 30000 } }, 
+                replset: { socketOptions: { keepAlive: 1, connectTimeoutMS : 30000 } } 
+              };
 
 
 //Connect to the database
-mongoose.connect('mongodb://dilushika:123@ds025263.mlab.com:25263/todoapp')
+mongoose.connect(config.DBHost,options)
 	.then((result) => console.log('connection successful'))
 	.catch((err) => console.error(err)); 
+
+
+//don't show the log when it is test
+if(config.util.getEnv('NODE_ENV') !== 'test') {
+    //use morgan to log at command line
+    app.use(morgan('combined')); //'combined' outputs the Apache style LOGs
+}
 
 
 //Add the middleware to the express application
@@ -149,5 +162,7 @@ var todos = mongoose.model('todos',TodoSchema);
 	//Creating the server where browsers can connect to...
 	app.listen(3000, function() {
 		console.log('listening on 3000')
-	})
+	});
+
+	module.exports = app; // for testing
 
