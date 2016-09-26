@@ -58,9 +58,7 @@ app.controller("app", function($scope,$http) {
         $http.delete('/mytodos/' + id + '/' + status)
         .success(function(data){
             $scope.todolist = data;
-            console.log(data);
             
-
         })
         .error(function(data){
             console.log('Error: ' + data);

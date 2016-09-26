@@ -43,8 +43,9 @@
 					$scope: scope,
 					$http: httpp
 				});
+
 				scope.task = 'hello';
-							
+
 				scope.addTasks();
 
 				httpBackend.flush();
@@ -56,7 +57,24 @@
 
 			});
 
-			
+
+			it('Should delete data from mytodos',function(){
+
+				httpBackend.when("DELETE", "/mytodos/57e4c96b87425a0a216de7af/false").respond(200,{todos});
+				
+				controller('app', {
+					$scope: scope,
+					$http: httpp
+				});
+
+				scope.finishedTasks('57e4c96b87425a0a216de7af','false');
+				httpBackend.flush();
+				expect(scope.todolist).toEqual({todos});
+				
+			});
+
+
 
 		});	
+
 	});
