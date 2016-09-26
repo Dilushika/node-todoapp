@@ -41,7 +41,7 @@
 
   <span><input type="button" class="btn btn-default btn-sm pull-left" value="To Do Tasks" ng-click="getTodos()"></span>
 
-  <span><input type="button" class="btn btn-default btn-sm pull-left" value="Completed Tasks" ng-click="addToCompleted()"></span>
+  <span><input type="button" class="btn btn-default btn-sm pull-left" value="Completed Tasks" ng-click="completedTasks()"></span>
 
 
 
@@ -54,13 +54,13 @@
 
    <span > <input class="add-input" placeholder="Enter your ToDo tasks Here..." type="text" ng-model="task" ng-click="todotasks()"> 
 
-     <input type="submit" class="btn btn-primary button btn-sm pull-right" value="Enter Your Task" ng-click="addTasks()">
+     <input type="submit" class="btn btn-default button btn-sm pull-right" value="Enter Your Task" ng-click="addTasks()">
 
    </span>
 
   </div>
 
-     <br><br><br>
+     <br>
 
      <table class="table">
 
@@ -80,7 +80,7 @@
        {{onetask.taskMessage}}
      </span>
      <span>
-       <input type="button" class="btn btn-primary btn-sm pull-right inp-{{onetask.status}} button" ng-click="completedTasks(onetask._id)" value="Done">
+       <input type="button" class="btn btn-default btn-sm pull-right inp-{{onetask.status}} button" ng-click="addToCompleted(onetask._id)" value="Done">
        <span>
     </td>
 

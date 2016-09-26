@@ -31,7 +31,7 @@ app.controller("app", function($scope,$http) {
 
     };
 
-    $scope.addToCompleted = function() {
+    $scope.completedTasks = function() {
         $http.get('/mycompletedtodos')
         .success(function(data){
             $scope.todolist = data;
@@ -67,16 +67,17 @@ app.controller("app", function($scope,$http) {
     };
 
 
-    $scope.completedTasks = function(id) {
+    $scope.addToCompleted = function(id) {
         $http.put('/mytodos/'+ id)
         .success(function(data){
             $scope.todolist = data;
-            console.log(data);
+                        
         })
         .error(function(data){
             console.log('Error: ' +data);
         });
     };
+
 });
 
 
